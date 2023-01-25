@@ -20,6 +20,22 @@ const tickets: TicketT[] = [
     assignee: "Luke",
     status: "Open",
   },
+  {
+    _id: "3",
+    subject: "no notifications",
+    description: "Not receiving my notifications",
+    severity: "Medium",
+    assignee: "Gail",
+    status: "Closed",
+  },
+  {
+    _id: "4",
+    subject: "form submit",
+    description: "i cant submit my form entry",
+    severity: "Low",
+    assignee: "Ernie",
+    status: "Open",
+  },
 ]
 
 const TicketsHome = () => {
