@@ -64,7 +64,7 @@ function TicketsHome({ initialData }: { initialData: TicketT[] }) {
       <section className="my-4 mx-auto max-w-3xl rounded p-3">
         <h1 className="text-red-800">Tickets</h1>
 
-        <article className="my-3 rounded border bg-slate-400/20 p-5 lg:my-8">
+        <article className="my-3 rounded p-5 lg:my-8">
           <ul>
             <TicketList tickets={initialData} />
           </ul>
