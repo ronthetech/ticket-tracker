@@ -24,14 +24,16 @@ const TicketList = ({ tickets }: { tickets: TicketT[] }) => {
           </div>
 
           <div className="hidden sm:block" aria-hidden="true">
-            <div className="py-5">
+            <div className="py-2">
               <div className="border-t border-gray-800" />
             </div>
           </div>
 
-          <h3>{ticket.subject}</h3>
-          <div className="rounded-3 my-3 border border-slate-300 bg-slate-200/20 p-2">
-            <p className="text-slate-800">{ticket.description}</p>
+          <h2>{ticket.subject}</h2>
+          <div className="rounded-3 my-3 border border-slate-300 bg-slate-200/20 p-2 dark:bg-slate-900/40">
+            <p className="text-slate-800 dark:text-slate-100">
+              {ticket.description}
+            </p>
           </div>
 
           <div className="flex gap-6 font-bold">
@@ -45,10 +47,10 @@ const TicketList = ({ tickets }: { tickets: TicketT[] }) => {
             </div>
           </div>
 
-          <div className="mt-3 flex gap-4">
+          <div className="flex gap-4">
             <Link
               href={`/tickets/update/${ticket._id}`}
-              className="btn-primary rounded-lg border border-slate-200 bg-slate-500/40 py-1 px-2 font-semibold uppercase text-white shadow-md hover:bg-slate-500/70 focus:outline-none focus:ring-2 focus:ring-opacity-75 dark:border-slate-700 dark:bg-slate-100/20 dark:text-slate-100 dark:hover:bg-slate-100/70 dark:hover:text-slate-800 sm:py-1 sm:px-2">
+              className="btn-primary rounded-lg border border-slate-200 bg-slate-500/40 py-1 px-2 font-semibold uppercase text-slate-900 shadow-md hover:bg-slate-500/70 hover:text-slate-200 focus:outline-none focus:ring-2 focus:ring-opacity-75 dark:border-slate-700 dark:bg-slate-100/20 dark:text-slate-100 dark:hover:bg-slate-100/70 dark:hover:text-slate-800 sm:py-1 sm:px-2">
               Edit
             </Link>
 
