@@ -1,14 +1,19 @@
+import Spinner from "components/spinner"
 import Link from "next/link"
 import type { TicketT } from "types/ticket"
 
 const TicketList = ({ tickets }: { tickets: TicketT[] }) => {
+  if (!tickets) {
+    return <Spinner />
+  }
+
   return (
     <>
       {tickets.map((ticket) => (
         <li
           key={ticket._id}
           {...ticket}
-          className="my-3 rounded border bg-slate-400/20 p-5 lg:my-8">
+          className="my-3 rounded border bg-slate-400/70 p-5 lg:my-8">
           <div className="flex items-center gap-3">
             <Link href={`/tickets/${ticket._id}`}>
               <p className="text-lg">Ticket ID: {ticket._id}</p>
