@@ -58,7 +58,7 @@ const TicketList = ({ tickets }: { tickets: TicketT[] }) => {
 
             <button
               onClick={() => console.log("deleted")}
-              className="btn-danger rounded-lg border border-slate-200 bg-red-600 py-1 px-2 font-semibold uppercase text-white shadow-md hover:bg-red-600/70 focus:outline-none focus:ring-2 focus:ring-opacity-75 dark:border-red-700 dark:text-slate-100 dark:hover:text-slate-200/70 sm:py-1  sm:px-2">
+              className="btn-danger rounded-lg border border-slate-200 bg-red-600 py-1 px-2 font-semibold uppercase text-white shadow-md hover:bg-red-600/70 focus:outline-none focus:ring-2 focus:ring-opacity-75 dark:border-red-700 dark:text-slate-100 dark:hover:text-slate-200/70 sm:py-1 sm:px-2">
               Delete
             </button>
           </div>
