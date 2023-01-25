@@ -11,9 +11,8 @@ interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "Next.js",
-  description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+  name: "Ticket Tracker",
+  description: "Ticket Tracker.",
   mainNav: [
     {
       title: "Home",
