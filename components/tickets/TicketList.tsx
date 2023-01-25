@@ -48,7 +48,7 @@ const TicketList = ({ tickets }: { tickets: TicketT[] }) => {
           <div className="mt-3 flex gap-4">
             <Link
               href={`/tickets/update/${ticket._id}`}
-              className="btn-primary rounded-lg border border-slate-200 bg-slate-500/40 py-1 px-2 font-semibold uppercase text-white shadow-md hover:bg-slate-500/70 focus:outline-none focus:ring-2 focus:ring-opacity-75 dark:border-slate-700 dark:text-slate-100 dark:hover:text-slate-800 sm:py-1 sm:px-2">
+              className="btn-primary rounded-lg border border-slate-200 bg-slate-500/40 py-1 px-2 font-semibold uppercase text-white shadow-md hover:bg-slate-500/70 focus:outline-none focus:ring-2 focus:ring-opacity-75 dark:border-slate-700 dark:bg-slate-100/20 dark:text-slate-100 dark:hover:bg-slate-100/70 dark:hover:text-slate-800 sm:py-1 sm:px-2">
               Edit
             </Link>
 
