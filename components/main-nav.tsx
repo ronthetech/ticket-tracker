@@ -44,7 +44,7 @@ export function MainNav({ items }: MainNavProps) {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <button className="dark:text-slate-100dark:hover:bg-slate-800 -ml-4 inline-flex items-center justify-center rounded-md bg-transparent text-base font-medium transition-colors hover:bg-transparent hover:bg-slate-100 focus:outline-none focus:ring-0 focus:ring-slate-400 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=open]:bg-slate-100 data-[state=open]:bg-transparent dark:hover:text-slate-100 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900 dark:data-[state=open]:bg-slate-800 dark:data-[state=open]:bg-transparent md:hidden">
-            <Icons.logo className="mr-2 h-4 w-4" />{" "}
+            <Icons.logo className="mr-2 h-4 w-4" />
             <span className="font-bold">Menu</span>
           </button>
         </DropdownMenuTrigger>
