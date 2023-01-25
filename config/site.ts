@@ -18,6 +18,7 @@ export const siteConfig: SiteConfig = {
       title: "Home",
       href: "/",
     },
+    { title: "Tickets", href: "/tickets" },
   ],
   links: {
     twitter: "https://twitter.com/ronjtech",
