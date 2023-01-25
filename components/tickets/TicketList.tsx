@@ -14,10 +14,10 @@ const TicketList = ({ tickets }: { tickets: TicketT[] }) => {
               <p className="text-lg">Ticket ID: {ticket._id}</p>
             </Link>
             <span
-              className={`pointer-events-none rounded-full py-1 px-2 text-sm font-semibold text-white shadow-md${
+              className={`pointer-events-none rounded-full py-1 px-2 text-sm font-semibold text-slate-300 shadow-md${
                 ticket.status === "Closed"
-                  ? " bg-fuchsia-700/70"
-                  : " bg-red-500/70"
+                  ? " bg-fuchsia-700/50"
+                  : " bg-red-600/70"
               }`}>
               {ticket.status}
             </span>
