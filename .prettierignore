@@ -1,0 +1,12 @@
+cache
+.cache
+package.json
+package-lock.json
+public
+CHANGELOG.md
+.yarn
+node_modules
+
+.gitignore
+
+.next
