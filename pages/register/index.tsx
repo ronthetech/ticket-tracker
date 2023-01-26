@@ -2,6 +2,8 @@ import { Layout } from "components/layout.tsx"
 import { Input } from "components/ui/input"
 import { signIn, signOut, useSession } from "next-auth/react"
 import Head from "next/head"
+import { useRouter } from "next/router"
+import { useEffect } from "react"
 import type { SubmitHandler } from "react-hook-form"
 import { useForm } from "react-hook-form"
 import { Label } from "../../components/ui/label"
@@ -13,7 +15,17 @@ type FormInput = {
 }
 
 const RegistrationPage = () => {
+  const router = useRouter()
+  const pathname = router.pathname
   const { data: sessionData } = useSession()
+
+  useEffect(() => {
+    if (sessionData && pathname === "/register") {
+      router.push("/").catch((err) => {
+        console.log(err)
+      })
+    }
+  }, [pathname, router, sessionData])
 
   const {
     register,
