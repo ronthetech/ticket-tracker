@@ -52,3 +52,35 @@ export const ticketRouter = createTRPCRouter({
       return newTicket
     }),
 })
+
+// addUser: publicProcedure
+//     .input(
+//       z.object({
+//         email: z.string(),
+//         name: z.string(),
+//       })
+//     )
+//     .mutation(async ({ ctx, input }) => {
+//       try {
+//         const newUser = await ctx.prisma.users.create({
+//           data: {
+//             email: input.email,
+//             name: input.name,
+//           },
+//         })
+//         return newwUser
+//       } catch (error) {
+//         if (error instanceof PrismaClientKnownRequestError) {
+//           if (error.code === "P2002") {
+//             throw new trpc.TRPCError({
+//               code: "CONFLICT",
+//               message: "User already exists.",
+//             })
+//           }
+//         }
+//         throw new trpc.TRPCError({
+//           code: "INTERNAL_SERVER_ERROR",
+//           message: "Something went wrong.",
+//         })
+//       }
+//     }),
