@@ -5,15 +5,6 @@ export type NewTicketT = {
   assignee: string
 }
 
-export type TicketT = {
-  _id: string
-  subject: string
-  description: string
-  severity: string
-  assignee: string
-  status: string
-}
-
 export type Ticket = {
   id: string
   createdAt: Date
