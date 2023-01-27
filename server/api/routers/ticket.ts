@@ -1,7 +1,7 @@
 import { Prisma } from "@prisma/client"
 import { z } from "zod"
 
-import { createTRPCRouter, publicProcedure } from "../trpc"
+import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc"
 
 const ticketList = Prisma.validator<Prisma.TicketSelect>()({
   id: true,
@@ -29,7 +29,7 @@ export const ticketRouter = createTRPCRouter({
       })
     }),
 
-  addTicket: publicProcedure
+  addTicket: protectedProcedure
     .input(
       z.object({
         subject: z.string(),
