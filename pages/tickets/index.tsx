@@ -125,8 +125,14 @@ function TicketsHome() {
                 </div>
 
                 <div className="flex gap-6 font-bold">
-                  <p>{ticket.severity.toUpperCase()}</p>
-                  <p>{ticket.assignee}</p>
+                  <span className="flex">
+                    <Icons.timer className="h-5 w-5" />
+                    {ticket.severity.toUpperCase()}
+                  </span>
+                  <span className="flex">
+                    <Icons.userIcon className="h-5 w-5" />
+                    {ticket.assignee}
+                  </span>
                 </div>
 
                 <div className="block" aria-hidden="true">
