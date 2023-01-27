@@ -78,7 +78,7 @@ model Ticket {
     description String
     severity    String
     assignee    String
-    status      Boolean  @default(false)
+    status      Boolean  @default(true)
     createdAt   DateTime @default(now())
     author      User     @relation(fields: [userId], references: [id])
 
