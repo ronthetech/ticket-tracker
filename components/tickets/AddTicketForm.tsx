@@ -1,7 +1,7 @@
+import Spinner from "components/spinner"
 import { Input } from "components/ui/input"
 import { Label } from "components/ui/label"
 import { useSession } from "next-auth/react"
-import Link from "next/link"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
@@ -58,13 +58,9 @@ const AddTicketForm = () => {
   return (
     <>
       {success ? (
-        <section className="min-w-3xl my-4 mx-auto rounded bg-slate-400/70 p-3">
-          <h1 className="text-white-800">Success!</h1>
-          <div className="my-3 rounded border bg-[hsl(124,82%,45%)] p-5 lg:my-8">
-            <Link href="/tickets" className="text-2xl hover:underline">
-              Tickets
-            </Link>
-          </div>
+        <section className="min-w-3xl my-4 mx-auto rounded bg-transparent p-3 dark:bg-slate-400/70">
+          <h1 className="dark:text-white-800 text-slate-800">Success!</h1>
+          <Spinner />
         </section>
       ) : (
         <>
@@ -97,7 +93,7 @@ const AddTicketForm = () => {
               <div className="mt-5 md:col-span-2 md:mt-0">
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="overflow-hidden shadow sm:rounded-md">
-                    <div className="rounded-t bg-gray-400/30 px-4 py-5 dark:bg-[rgba(0,0,0,0.5)] sm:px-6 sm:pb-0">
+                    <div className="rounded-t bg-transparent px-4 py-5 dark:bg-[rgba(0,0,0,0.5)] sm:px-6 sm:pb-0">
                       <div className="grid grid-cols-6 gap-6 sm:ml-10">
                         {/* subject */}
                         <div className="col-span-6 sm:col-span-5">
@@ -115,7 +111,7 @@ const AddTicketForm = () => {
                           />
                           <span className="mb-2 inline-flex h-2">
                             {errors.subject && (
-                              <p className="decoration-3 font-bold text-red-900 underline dark:text-red-600">
+                              <p className="decoration-3 border-x border-t border-x-red-900 border-t-red-900 font-bold text-red-800 underline decoration-red-900 dark:text-red-100">
                                 Subject is required
                               </p>
                             )}
@@ -138,7 +134,7 @@ const AddTicketForm = () => {
                           />
                           <span className="mb-2 inline-flex h-2">
                             {errors.description && (
-                              <p className="decoration-3 font-bold text-red-900 underline dark:text-red-600">
+                              <p className="decoration-3 border-x border-t border-x-red-900 border-t-red-900 font-bold text-red-800 underline decoration-red-900 dark:text-red-100">
                                 Description is required
                               </p>
                             )}
@@ -208,7 +204,7 @@ const AddTicketForm = () => {
                           </select>
                           <span className="mb-2 inline-flex h-2">
                             {errors.severity && (
-                              <p className="decoration-3 font-bold text-red-900 underline dark:text-red-600">
+                              <p className="decoration-3 border-x border-t border-x-red-900 border-t-red-900 font-bold text-red-800 underline decoration-red-900 dark:text-red-100">
                                 Severity is required
                               </p>
                             )}
@@ -231,7 +227,7 @@ const AddTicketForm = () => {
                           />
                           <span className="mb-2 inline-flex h-2">
                             {errors.assignee && (
-                              <p className="decoration-3 font-bold text-red-800 underline">
+                              <p className="decoration-3 border-x border-t border-x-red-900 border-t-red-900 font-bold text-red-800 underline decoration-red-900 dark:text-red-100">
                                 You must assign this ticket to a user
                               </p>
                             )}
@@ -240,10 +236,10 @@ const AddTicketForm = () => {
                       </div>
                     </div>
 
-                    <div className="grid bg-gray-400/30  px-4 py-3 dark:bg-[rgba(0,0,0,0.5)] sm:pb-6 sm:pt-0">
+                    <div className="grid bg-transparent  px-4 py-3 dark:bg-[rgba(0,0,0,0.5)] sm:pb-6 sm:pt-0">
                       <span className="h-2 text-center">
                         {errorMessage && (
-                          <p className="decoration-3 font-bold text-red-900 underline dark:text-red-600">
+                          <p className="decoration-3 font-bold text-red-900 underline decoration-red-900 dark:text-red-200">
                             {errorMessage}
                           </p>
                         )}
