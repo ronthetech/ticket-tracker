@@ -38,11 +38,11 @@ const AddTicketForm = () => {
   const onSubmit = (values: AddTicketInput) => {
     if (data && data.user) {
       addTicket.mutate({ ...values, userId: data.user.id })
+      setSuccess(true)
     } else {
       console.log("You must be in a session to continue")
       console.log(errors)
     }
-    setSuccess(true)
   }
 
   return (
@@ -74,7 +74,7 @@ const AddTicketForm = () => {
                   <p
                     className="mt-1 text-base font-normal text-slate-600 dark:text-slate-400"
                     id="form-description">
-                    Add a subject and detailed summary describing the issue.
+                    Add the subject and a detailed description of the issue.
                   </p>
                 </div>
 
@@ -87,7 +87,7 @@ const AddTicketForm = () => {
               <div className="mt-5 md:col-span-2 md:mt-0">
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="overflow-hidden shadow sm:rounded-md">
-                    <div className="rounded-t bg-gray-500/30 px-4 py-5 dark:bg-[rgba(0,0,0,0.5)] sm:px-6 sm:pb-0">
+                    <div className="rounded-t bg-gray-400/30 px-4 py-5 dark:bg-[rgba(0,0,0,0.5)] sm:px-6 sm:pb-0">
                       <div className="grid grid-cols-6 gap-6 sm:ml-10">
                         {/* subject */}
                         <div className="col-span-6 sm:col-span-5">
@@ -105,7 +105,7 @@ const AddTicketForm = () => {
                           />
                           <span className="mb-2 inline-flex h-2">
                             {errors.subject && (
-                              <p className="decoration-3 font-bold text-red-800 underline dark:text-red-600">
+                              <p className="decoration-3 font-bold text-red-900 underline dark:text-red-600">
                                 Subject is required
                               </p>
                             )}
@@ -128,7 +128,7 @@ const AddTicketForm = () => {
                           />
                           <span className="mb-2 inline-flex h-2">
                             {errors.description && (
-                              <p className="decoration-3 font-bold text-red-800 underline">
+                              <p className="decoration-3 font-bold text-red-900 underline dark:text-red-600">
                                 Description is required
                               </p>
                             )}
@@ -173,14 +173,14 @@ const AddTicketForm = () => {
                           </Label>
                           <select
                             id="severity"
-                            className="my-1 flex h-10 w-full rounded-md border border-slate-300 bg-transparent py-2 px-3 text-sm placeholder:text-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900"
+                            defaultValue={""}
+                            className="my-1 flex h-10 w-full rounded-md border border-slate-700 bg-transparent py-2 px-3 text-sm placeholder:text-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900"
                             {...register("severity", {
                               required: true,
                               min: 3,
                             })}>
                             <option
                               aria-disabled
-                              selected
                               disabled
                               className="text-black"
                               value="">
@@ -198,7 +198,7 @@ const AddTicketForm = () => {
                           </select>
                           <span className="mb-2 inline-flex h-2">
                             {errors.severity && (
-                              <p className="decoration-3 font-bold text-red-800 underline">
+                              <p className="decoration-3 font-bold text-red-900 underline dark:text-red-600">
                                 Severity is required
                               </p>
                             )}
@@ -230,7 +230,7 @@ const AddTicketForm = () => {
                       </div>
                     </div>
 
-                    <div className="flex justify-end bg-gray-50  px-4 py-3 dark:bg-[rgba(0,0,0,0.5)] sm:pb-6 sm:pt-0">
+                    <div className="flex justify-end bg-gray-400/30  px-4 py-3 dark:bg-[rgba(0,0,0,0.5)] sm:pb-6 sm:pt-0">
                       <button
                         type="submit"
                         className="m-0 w-20 rounded-md bg-[hsl(272,82%,45%)] p-1 text-base font-semibold text-white no-underline transition-colors hover:bg-[hsl(272,82%,45%)]/50 dark:border
