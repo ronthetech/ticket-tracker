@@ -1,8 +1,6 @@
 import { siteConfig } from "config/site"
-import Link from "next/link"
 import AuthSlot from "./AuthSlot"
 
-import { Icons } from "./icons"
 import { MainNav } from "./main-nav"
 import { ThemeToggle } from "./theme-toggle"
 
@@ -14,7 +12,7 @@ export function SiteHeader() {
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-4">
             <AuthSlot />
-            <Link
+            {/* <Link
               href={siteConfig.links.github}
               target="_blank"
               rel="noreferrer">
@@ -31,7 +29,7 @@ export function SiteHeader() {
                 <Icons.twitter className="h-5 w-5 fill-current" />
                 <span className="sr-only">Twitter</span>
               </div>
-            </Link>
+            </Link> */}
             <ThemeToggle />
           </nav>
         </div>
