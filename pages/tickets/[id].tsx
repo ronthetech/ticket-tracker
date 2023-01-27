@@ -39,7 +39,7 @@ const Ticket: NextPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="my-4 mx-auto max-w-3xl rounded p-3">
+      <section className="my-4 mx-auto max-w-xl rounded p-3 lg:max-w-3xl">
         <article className="my-3 rounded border bg-slate-400/20 p-5 lg:my-8">
           <div className="flex items-center gap-3">
             <p className="text-lg">Ticket ID: {id}</p>
@@ -65,13 +65,13 @@ const Ticket: NextPage = () => {
           </div>
 
           <div className="flex gap-6 font-bold">
-            <p>{data.severity}</p>
+            <p>{data.severity.toUpperCase()}</p>
             <p>{data.assignee}</p>
           </div>
 
-          <div className="hidden sm:block" aria-hidden="true">
-            <div className="py-5">
-              <div className="border-t border-gray-800" />
+          <div className="block" aria-hidden="true">
+            <div className="py-3 lg:py-5">
+              <div className="border-t border-gray-800 dark:border-gray-300" />
             </div>
           </div>
 
