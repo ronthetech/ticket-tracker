@@ -47,7 +47,6 @@ const EditTicket: NextPage = () => {
   } = useForm<UpdateTicketInput>()
 
   const onSubmit = (values: UpdateTicketInput) => {
-    console.log(values)
     const str2bool = (value: string) => {
       if (value === "true") return true
       return false
