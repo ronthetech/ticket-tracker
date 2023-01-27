@@ -1,7 +1,8 @@
-import { Layout } from "components/layout.tsx"
-import TicketList from "components/tickets/TicketList"
+import { Layout } from "components/layout"
+import Spinner from "components/spinner"
 import Head from "next/head"
-import type { TicketT } from "types/ticket"
+import Link from "next/link"
+import { api } from "utils/api"
 
 // const tickets: TicketT[] = [
 //   {
@@ -38,21 +39,30 @@ import type { TicketT } from "types/ticket"
 //   },
 // ]
 
-const getTickets = (): Promise<TicketT[]> =>
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-  fetch("https://rjf-manager-server.onrender.com/tickets").then((response) =>
-    response.json()
-  )
+// const getTickets = (): Promise<TicketT[]> =>
+//   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+//   fetch("https://rjf-manager-server.onrender.com/tickets").then((response) =>
+//     response.json()
+//   )
 
-export const getServerSideProps = async () => {
-  // const res = await fetch("https://rjf-manager-server.onrender.com/tickets")
+// export const getServerSideProps = async () => {
+//   // const res = await fetch("https://rjf-manager-server.onrender.com/tickets")
 
-  return {
-    props: { initialData: await getTickets() },
+//   return {
+//     props: { initialData: await getTickets() },
+//   }
+// }
+
+function TicketsHome() {
+  const { data, isLoading } = api.ticket.getTickets.useQuery()
+
+  if (!data) {
+    return <></>
   }
-}
+  if (isLoading) {
+    return <Spinner />
+  }
 
-function TicketsHome({ initialData }: { initialData: TicketT[] }) {
   return (
     <Layout>
       <Head>
@@ -66,7 +76,67 @@ function TicketsHome({ initialData }: { initialData: TicketT[] }) {
 
         <article className="my-3 rounded p-5 lg:my-8">
           <ul>
-            <TicketList tickets={initialData} />
+            {data.map((ticket) => (
+              <li
+                key={ticket.id}
+                className="my-3 rounded border bg-slate-400/70 p-5 lg:my-8">
+                <div className="flex items-center gap-3">
+                  <Link href={`/tickets/${ticket.id}`}>
+                    <p className="text-lg">Ticket ID: {ticket.id}</p>
+                  </Link>
+                  <span
+                    className={`pointer-events-none rounded-full py-1 px-2 text-sm font-semibold text-slate-300 shadow-md${
+                      ticket.status == true
+                        ? " bg-red-600/70"
+                        : " bg-fuchsia-700/50"
+                    }`}>
+                    {ticket.status == true ? "Open" : "Closed"}
+                  </span>
+                </div>
+
+                <div className="hidden sm:block" aria-hidden="true">
+                  <div className="py-2">
+                    <div className="border-t border-gray-800" />
+                  </div>
+                </div>
+
+                <h2>{ticket.subject}</h2>
+                <div className="rounded-3 m-4 border border-slate-300 bg-slate-200/20 p-4 dark:bg-slate-900/40">
+                  <p className="text-slate-800 dark:text-slate-100">
+                    {ticket.description}
+                  </p>
+                </div>
+
+                <div className="flex gap-6 font-bold">
+                  <p>{ticket.severity}</p>
+                  <p>{ticket.assignee}</p>
+                </div>
+
+                <div className="hidden sm:block" aria-hidden="true">
+                  <div className="py-5">
+                    <div className="border-t border-gray-800" />
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <Link
+                    href={`/tickets/update/${ticket.id}`}
+                    className="btn-primary rounded-lg border border-slate-700 bg-slate-500/40 py-1 px-2 font-semibold uppercase text-slate-900 shadow-md hover:border-slate-200 hover:bg-slate-500/70 hover:text-slate-200 focus:outline-none focus:ring-2 focus:ring-opacity-75 dark:border-slate-700 dark:bg-slate-100/20 dark:text-slate-100 dark:hover:bg-slate-100/70 dark:hover:text-slate-800 sm:py-1 sm:px-2">
+                    Edit
+                  </Link>
+
+                  {/* <button className="rounded-lg py-1 px-2 font-semibold uppercase text-white shadow-md focus:outline-none focus:ring-2 focus:ring-opacity-75 sm:py-1 sm:px-2 btn-warn" onClick={() => handleTicket(ticket._id, ticket.status)}>
+                  {ticket.status === "Open" ? "Close" : "Open"}
+                </button> */}
+
+                  <button
+                    onClick={() => console.log("deleted")}
+                    className="rounded-lg border border-red-700 bg-red-600 py-1 px-2 font-semibold uppercase text-white shadow-md hover:border-slate-200 hover:bg-red-600/70 focus:outline-none focus:ring-2 focus:ring-opacity-75 dark:border-red-700 dark:text-slate-100 dark:hover:text-slate-200/70 sm:py-1 sm:px-2">
+                    Delete
+                  </button>
+                </div>
+              </li>
+            ))}
           </ul>
         </article>
       </section>
