@@ -1,3 +1,4 @@
+import { Icons } from "components/icons"
 import Spinner from "components/spinner"
 import { Input } from "components/ui/input"
 import { Label } from "components/ui/label"
@@ -247,8 +248,9 @@ const AddTicketForm = () => {
                     <div className="grid bg-transparent px-4 py-3 dark:bg-[rgba(0,0,0,0.5)] sm:pb-6 sm:pt-0">
                       <button
                         type="submit"
-                        className="m-0 w-20 justify-self-end rounded-md bg-[hsl(272,82%,45%)] p-1 text-base font-semibold text-white no-underline transition-colors hover:bg-[hsl(272,82%,45%)]/50 dark:border
+                        className="m-0 flex w-20 items-center justify-center justify-self-end rounded-md bg-[hsl(272,82%,45%)] p-1 text-base font-semibold text-white no-underline transition-colors hover:bg-[hsl(272,82%,45%)]/50 dark:border
         dark:border-slate-600 dark:bg-[hsl(272,82%,45%)] dark:hover:border-slate-800 dark:hover:bg-[hsl(272,82%,45%)]/80 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900 lg:w-24 lg:py-2">
+                        <Icons.filePlus className="h-5 w-5" />
                         Add
                       </button>
                     </div>
