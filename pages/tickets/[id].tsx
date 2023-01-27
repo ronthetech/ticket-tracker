@@ -70,7 +70,7 @@ const Ticket: NextPage = () => {
 
           <div className="mt-3 flex gap-4">
             <Link
-              href={`/tickets/update/${data.id}`}
+              href={`/tickets/edit/${data.id}`}
               className="rounded-lg border border-slate-700 bg-slate-500/40 py-1 px-2 font-semibold uppercase text-slate-900 shadow-md hover:border-slate-200 hover:bg-slate-500/70 hover:text-slate-200 focus:outline-none focus:ring-2 focus:ring-opacity-75 dark:border-slate-700 dark:bg-slate-100/20 dark:text-slate-100 dark:hover:bg-slate-100/70 dark:hover:text-slate-800 sm:py-1 sm:px-2">
               Edit
             </Link>
