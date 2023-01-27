@@ -2,6 +2,7 @@ import { Layout } from "components/layout"
 import Spinner from "components/spinner"
 import Head from "next/head"
 import Link from "next/link"
+import { useRouter } from "next/router"
 import { api } from "utils/api"
 
 // const tickets: TicketT[] = [
@@ -54,7 +55,18 @@ import { api } from "utils/api"
 // }
 
 function TicketsHome() {
+  const router = useRouter()
   const { data, isLoading } = api.ticket.getTickets.useQuery()
+
+  const deleteTicket = api.ticket.deleteTicket.useMutation({
+    onSuccess: () => {
+      router.reload()
+    },
+  })
+
+  const handleDelete = (id: string) => {
+    deleteTicket.mutate({ id })
+  }
 
   if (!data) {
     return <></>
@@ -130,7 +142,7 @@ function TicketsHome() {
                 </button> */}
 
                   <button
-                    onClick={() => console.log("deleted")}
+                    onClick={() => handleDelete(ticket.id)}
                     className="rounded-lg border border-red-700 bg-red-600 py-1 px-2 font-semibold uppercase text-white shadow-md hover:border-slate-200 hover:bg-red-600/70 focus:outline-none focus:ring-2 focus:ring-opacity-75 dark:border-red-700 dark:text-slate-100 dark:hover:text-slate-200/70 sm:py-1 sm:px-2">
                     Delete
                   </button>
