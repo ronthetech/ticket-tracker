@@ -2,6 +2,7 @@ import { Input } from "components/ui/input"
 import { Label } from "components/ui/label"
 import { useSession } from "next-auth/react"
 import Link from "next/link"
+import { useRouter } from "next/router"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { api } from "utils/api"
@@ -18,8 +19,13 @@ type AddTicketInput = {
 const AddTicketForm = () => {
   const [success, setSuccess] = useState(false)
   const { data } = useSession()
+  const router = useRouter()
 
-  const addTicket = api.ticket.addTicket.useMutation()
+  const addTicket = api.ticket.addTicket.useMutation({
+    onSuccess: async ({ id }) => {
+      await router.push(`/tickets/${id}`)
+    },
+  })
 
   const {
     reset,
