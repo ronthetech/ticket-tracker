@@ -1,4 +1,4 @@
-import { Layout } from "components/layout.tsx"
+import { Layout } from "components/layout"
 import { Input } from "components/ui/input"
 import { signIn, signOut, useSession } from "next-auth/react"
 import Head from "next/head"
@@ -20,6 +20,11 @@ const RegistrationPage = () => {
   const { data: sessionData } = useSession()
 
   useEffect(() => {
+    if (sessionData && sessionData.expires) {
+      router.push("/").catch((err) => {
+        console.log(err)
+      })
+    }
     if (sessionData && pathname === "/register") {
       router.push("/").catch((err) => {
         console.log(err)
@@ -56,7 +61,7 @@ const RegistrationPage = () => {
       </Head>
 
       <section className="my-4 mx-auto max-w-3xl rounded p-3">
-        <h1 className="text-red-800">Register For An Account</h1>
+        <h1 className="text-red-800">Register Account</h1>
 
         <form onSubmit={handleSubmit(handleFormSubmit)}>
           <section className="my-4 mx-auto max-w-3xl rounded p-3 shadow sm:rounded-md">
