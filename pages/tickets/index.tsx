@@ -125,11 +125,11 @@ function TicketsHome() {
                 </div>
 
                 <div className="flex gap-6 font-bold">
-                  <span className="flex">
+                  <span className="flex rounded bg-white/10 p-1">
                     <Icons.timer className="h-5 w-5" />
                     {ticket.severity.toUpperCase()}
                   </span>
-                  <span className="flex">
+                  <span className="flex rounded bg-white/10 p-1">
                     <Icons.userIcon className="h-5 w-5" />
                     {ticket.assignee}
                   </span>
