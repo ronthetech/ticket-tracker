@@ -1,3 +1,4 @@
+import { Icons } from "components/icons"
 import { Layout } from "components/layout"
 import Spinner from "components/spinner"
 import { Input } from "components/ui/input"
@@ -47,20 +48,25 @@ const EditTicket: NextPage = () => {
   } = useForm<UpdateTicketInput>()
 
   const onSubmit = (values: UpdateTicketInput) => {
+    if (sessionData === null) {
+      setErrorMessage("You must be signed in to continue.")
+    } else if (sessionData.user === undefined) {
+      setErrorMessage("You need an account to continue.")
+    }
     const str2bool = (value: string) => {
       if (value === "true") return true
       return false
     }
 
     editTicket.mutate({ ...values, status: str2bool(values.status), id: id })
+  }
+
+  const handleDelete = (id: string) => {
     if (sessionData === null) {
       setErrorMessage("You must be signed in to continue.")
     } else if (sessionData.user === undefined) {
       setErrorMessage("You need an account to continue.")
     }
-  }
-
-  const handleDelete = (id: string) => {
     deleteTicket.mutate({ id })
   }
 
@@ -91,48 +97,6 @@ const EditTicket: NextPage = () => {
             </div>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <h2>{data.subject}</h2>
-            <div className="rounded-3 m-4 border border-slate-300 bg-slate-200/20 p-4 dark:bg-slate-900/40">
-              <p className="text-slate-800 dark:text-slate-100">
-                {data.description}
-              </p>
-            </div>
-
-            <div className="flex gap-6 font-bold">
-              <p>{data.severity.toUpperCase()}</p>
-              <p>{data.assignee}</p>
-            </div>
-
-            <div className="block" aria-hidden="true">
-              <div className="py-3 lg:py-5">
-                <div className="border-t border-gray-800 dark:border-gray-300" />
-              </div>
-            </div>
-
-            <div className="mt-3 flex gap-4">
-              <button
-                type="submit"
-                className="rounded-lg border border-slate-700 bg-slate-500/40 py-1 px-2 font-semibold uppercase text-slate-900 shadow-md hover:border-slate-200 hover:bg-slate-500/70 hover:text-slate-200 focus:outline-none focus:ring-2 focus:ring-opacity-75 dark:border-slate-700 dark:bg-slate-100/20 dark:text-slate-100 dark:hover:bg-slate-100/70 dark:hover:text-slate-800 sm:py-1 sm:px-2">
-                Save
-              </button>
-
-              {/* <button className="btn btn-warn" onClick={() => handleTicket(ticket._id, ticket.status)}>
-                  {ticket.status === "Open" ? "Close" : "Open"}
-                </button> */}
-
-              <button
-                onClick={() => handleDelete(data.id)}
-                className="rounded-lg border border-red-700 bg-red-600 py-1 px-2 font-semibold uppercase text-white shadow-md hover:border-slate-200 hover:bg-red-800/90 focus:outline-none focus:ring-2 focus:ring-opacity-75 dark:border-red-700 dark:text-slate-100 dark:hover:text-slate-200/70 sm:py-1 sm:px-2">
-                Delete
-              </button>
-            </div>
-
-            <div className="block" aria-hidden="true">
-              <div className="py-3 lg:py-5">
-                <div className="border-t border-gray-800 dark:border-gray-300" />
-              </div>
-            </div>
-
             {/* UPDATE FORM */}
             <div className="grid grid-cols-6 gap-6 sm:ml-10">
               {/* subject */}
@@ -337,14 +301,39 @@ const EditTicket: NextPage = () => {
                   )}
                 </span>
               </div>
+              <div className="col-span-6 sm:col-span-5">
+                <span className="col-span-6 h-0.5 sm:col-span-5">
+                  {errorMessage && (
+                    <p className="decoration-3 font-bold text-red-900 underline decoration-red-900 dark:text-red-200">
+                      {errorMessage}
+                    </p>
+                  )}
+                </span>
+                <div className="block" aria-hidden="true">
+                  <div className="py-2 lg:py-3">
+                    <div className="border-t border-gray-800 dark:border-gray-300" />
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <button
+                    type="submit"
+                    className="flex items-center rounded-lg border border-slate-700 bg-slate-500/40 py-1 px-2 font-semibold uppercase text-slate-900 shadow-md hover:border-slate-200 hover:bg-slate-500/70 hover:text-slate-200 focus:outline-none focus:ring-2 focus:ring-opacity-75 dark:border-slate-700 dark:bg-slate-100/20 dark:text-slate-100 dark:hover:bg-slate-100/70 dark:hover:text-slate-800 sm:py-1 sm:px-2">
+                    <Icons.save className="h-5 w-5" />
+                    Save
+                  </button>
 
-              <span className="col-span-6 h-0.5 sm:col-span-5">
-                {errorMessage && (
-                  <p className="decoration-3 font-bold text-red-900 underline decoration-red-900 dark:text-red-200">
-                    {errorMessage}
-                  </p>
-                )}
-              </span>
+                  {/* <button className="btn btn-warn" onClick={() => handleTicket(ticket._id, ticket.status)}>
+                  {ticket.status === "Open" ? "Close" : "Open"}
+                </button> */}
+
+                  <button
+                    onClick={() => handleDelete(data.id)}
+                    className="flex items-center rounded-lg border border-red-700 bg-red-600 py-1 px-2 font-semibold uppercase text-white shadow-md hover:border-slate-200 hover:bg-red-800/90 focus:outline-none focus:ring-2 focus:ring-opacity-75 dark:border-red-700 dark:text-slate-100 dark:hover:text-slate-200/70 sm:py-1 sm:px-2">
+                    <Icons.trash className="h-5 w-5" />
+                    Delete
+                  </button>
+                </div>
+              </div>
             </div>
           </form>
         </article>
