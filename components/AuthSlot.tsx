@@ -1,11 +1,10 @@
 import { signIn, signOut, useSession } from "next-auth/react"
-import Link from "next/link"
 import { useRouter } from "next/router"
 import React from "react"
 
 const AuthSlot: React.FC = () => {
   const router = useRouter()
-  const pathname = router.pathname
+  // const pathname = router.pathname
 
   const { data: sessionData } = useSession()
 
@@ -21,7 +20,7 @@ const AuthSlot: React.FC = () => {
 
   return (
     <div className="flex items-center justify-center gap-2">
-      {sessionData || pathname === "/register" ? (
+      {/* {sessionData || pathname === "/register" ? (
         <></>
       ) : (
         <Link
@@ -30,7 +29,7 @@ const AuthSlot: React.FC = () => {
           aria-label="Sign Up">
           Sign Up
         </Link>
-      )}
+      )} */}
       <button
         className="m-0 w-20 rounded-md bg-[hsl(272,82%,45%)] p-1 text-base font-semibold text-white no-underline transition-colors hover:bg-[hsl(272,82%,45%)]/50 dark:border
         dark:border-slate-600 dark:bg-[hsl(272,82%,45%)]/20 dark:hover:border-slate-300 dark:hover:bg-[hsl(272,82%,45%)]/60 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900 lg:w-24 lg:py-2"
