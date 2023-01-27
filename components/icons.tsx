@@ -1,5 +1,6 @@
 import type { LucideProps } from "lucide-react"
 import {
+  FilePlus,
   Laptop,
   Moon,
   Save,
@@ -12,6 +13,7 @@ import {
 export type Icon = LucideIcon
 
 export const Icons = {
+  filePlus: FilePlus,
   save: Save,
   sun: SunMedium,
   moon: Moon,
