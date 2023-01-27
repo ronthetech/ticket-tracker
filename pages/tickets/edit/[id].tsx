@@ -301,19 +301,20 @@ const EditTicket: NextPage = () => {
                   )}
                 </span>
               </div>
+              <span className="col-span-6 h-2 sm:col-span-5">
+                {errorMessage && (
+                  <p className="decoration-3 font-bold text-red-900 underline decoration-red-900 dark:text-red-200">
+                    {errorMessage}
+                  </p>
+                )}
+              </span>
               <div className="col-span-6 sm:col-span-5">
-                <span className="col-span-6 h-0.5 sm:col-span-5">
-                  {errorMessage && (
-                    <p className="decoration-3 font-bold text-red-900 underline decoration-red-900 dark:text-red-200">
-                      {errorMessage}
-                    </p>
-                  )}
-                </span>
                 <div className="block" aria-hidden="true">
                   <div className="py-2 lg:py-3">
                     <div className="border-t border-gray-800 dark:border-gray-300" />
                   </div>
                 </div>
+
                 <div className="flex gap-4">
                   <button
                     type="submit"
