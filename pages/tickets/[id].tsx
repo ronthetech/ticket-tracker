@@ -1,7 +1,6 @@
 import { Layout } from "components/layout"
 import Spinner from "components/spinner"
 import type { NextPage } from "next"
-import Head from "next/head"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { api } from "utils/api"
@@ -33,12 +32,6 @@ const Ticket: NextPage = () => {
 
   return (
     <Layout>
-      <Head>
-        <title>Ticket Tracker</title>
-        <meta name="description" content="Ticket Tracker" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <section className="my-4 mx-auto max-w-xl rounded p-3 lg:max-w-3xl">
         <article className="my-3 rounded border bg-slate-400/20 p-5 lg:my-8">
           <div className="flex items-center gap-3">

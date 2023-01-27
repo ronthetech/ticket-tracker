@@ -2,7 +2,6 @@ import { Layout } from "components/layout"
 import Spinner from "components/spinner"
 import { Input } from "components/ui/input"
 import { signIn, signOut, useSession } from "next-auth/react"
-import Head from "next/head"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import type { SubmitHandler } from "react-hook-form"
@@ -61,13 +60,6 @@ const RegistrationPage = () => {
 
   return (
     <Layout>
-      <Head>
-        <title>Ticket Tracker</title>
-        <meta name="description" content="Ticket Tracker" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       {success ? (
         <section className="min-w-3xl my-4 mx-auto rounded bg-transparent p-3 text-center">
           <h1 className="text-slate-800 dark:text-white">Success!</h1>

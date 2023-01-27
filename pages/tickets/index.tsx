@@ -1,6 +1,5 @@
 import { Layout } from "components/layout"
 import Spinner from "components/spinner"
-import Head from "next/head"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { api } from "utils/api"
@@ -77,12 +76,6 @@ function TicketsHome() {
 
   return (
     <Layout>
-      <Head>
-        <title>Ticket Tracker</title>
-        <meta name="description" content="Ticket Tracker" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <section className="my-4 mx-auto max-w-xl rounded p-3 md:max-w-3xl">
         <h1 className="text-red-800">Tickets</h1>
 
