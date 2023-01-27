@@ -66,14 +66,14 @@ const AddTicketForm = () => {
         <>
           <div className="block">
             <h1 className="text-red-800">Add New Issue:</h1>
-            <div className="py-2 lg:py-5">
+            <div className="py-1 lg:py-5">
               <div className="border-t border-gray-200" />
             </div>
           </div>
-          <div className="mt-10 sm:mt-0">
+          <div className="mt-0 sm:mt-3">
             <div className="md:grid md:grid-cols-3 md:gap-6">
               <div className="md:col-span-1">
-                <div className="px-4 sm:px-0">
+                <div className="px-2 sm:px-0">
                   <h3 className="text-slate-900 dark:text-slate-200">
                     Ticket Information
                   </h3>
@@ -93,7 +93,7 @@ const AddTicketForm = () => {
               <div className="mt-5 md:col-span-2 md:mt-0">
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="overflow-hidden shadow sm:rounded-md">
-                    <div className="rounded-t bg-transparent px-4 py-5 dark:bg-[rgba(0,0,0,0.5)] sm:px-6 sm:pb-0">
+                    <div className="rounded-t bg-transparent px-4 py-4 dark:bg-[rgba(0,0,0,0.5)] sm:px-6 sm:pb-0 lg:py-5">
                       <div className="grid grid-cols-6 gap-6 sm:ml-10">
                         {/* subject */}
                         <div className="col-span-6 sm:col-span-5">
@@ -233,18 +233,18 @@ const AddTicketForm = () => {
                             )}
                           </span>
                         </div>
+
+                        <span className="col-span-6 h-0.5 sm:col-span-5">
+                          {errorMessage && (
+                            <p className="decoration-3 font-bold text-red-900 underline decoration-red-900 dark:text-red-200">
+                              {errorMessage}
+                            </p>
+                          )}
+                        </span>
                       </div>
                     </div>
 
-                    <div className="grid bg-transparent  px-4 py-3 dark:bg-[rgba(0,0,0,0.5)] sm:pb-6 sm:pt-0">
-                      <span className="h-2">
-                        {errorMessage && (
-                          <p className="decoration-3 font-bold text-red-900 underline decoration-red-900 dark:text-red-200">
-                            {errorMessage}
-                          </p>
-                        )}
-                      </span>
-
+                    <div className="grid bg-transparent px-4 py-3 dark:bg-[rgba(0,0,0,0.5)] sm:pb-6 sm:pt-0">
                       <button
                         type="submit"
                         className="m-0 w-20 justify-self-end rounded-md bg-[hsl(272,82%,45%)] p-1 text-base font-semibold text-white no-underline transition-colors hover:bg-[hsl(272,82%,45%)]/50 dark:border
