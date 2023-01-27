@@ -11,11 +11,11 @@ const NewTicketPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="mx-auto flex max-w-5xl flex-col px-6 py-8">
+      <section className="mx-auto flex max-w-2xl flex-col px-6 py-8 lg:max-w-5xl">
         <AddTicketForm />
 
         <div className="hidden sm:block" aria-hidden="true">
-          <div className="py-5">
+          <div className="py-3 lg:py-5">
             <div className="border-t border-gray-200" />
           </div>
         </div>
