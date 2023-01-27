@@ -86,7 +86,7 @@ function TicketsHome() {
       <section className="my-4 mx-auto max-w-3xl rounded p-3">
         <h1 className="text-red-800">Tickets</h1>
 
-        <article className="my-3 rounded p-5 lg:my-8">
+        <article className="my-3 rounded p-5">
           <ul>
             {data.map((ticket) => (
               <li
@@ -94,7 +94,9 @@ function TicketsHome() {
                 className="my-3 rounded border bg-slate-400/70 p-5 lg:my-8">
                 <div className="flex items-center gap-3">
                   <Link href={`/tickets/${ticket.id}`}>
-                    <p className="text-lg">Ticket ID: {ticket.id}</p>
+                    <p className="text-lg" id={ticket.id}>
+                      Ticket ID: {ticket.id}
+                    </p>
                   </Link>
                   <span
                     className={`pointer-events-none rounded-full py-1 px-2 text-sm font-semibold text-slate-300 shadow-md${
