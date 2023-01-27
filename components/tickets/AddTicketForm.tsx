@@ -18,6 +18,7 @@ type AddTicketInput = {
 
 const AddTicketForm = () => {
   const [success, setSuccess] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("")
   const { data } = useSession()
   const router = useRouter()
 
@@ -28,7 +29,6 @@ const AddTicketForm = () => {
   })
 
   const {
-    reset,
     register,
     handleSubmit,
     formState: { errors },
@@ -45,18 +45,22 @@ const AddTicketForm = () => {
     if (data && data.user) {
       addTicket.mutate({ ...values, userId: data.user.id })
       setSuccess(true)
-    } else {
-      console.log("You must be in a session to continue")
-      console.log(errors)
+    } else if (data === null) {
+      setErrorMessage("You must be signed in to add a new issue.")
+    } else if (data.user === undefined) {
+      setErrorMessage("You need an account to continue.")
+    }
+    if (addTicket.error?.data?.zodError) {
+      setErrorMessage(JSON.stringify(addTicket.error.data.zodError, null, 2))
     }
   }
 
   return (
     <>
       {success ? (
-        <section className="my-4 mx-auto max-w-3xl rounded bg-slate-400/70 p-3">
+        <section className="min-w-3xl my-4 mx-auto rounded bg-slate-400/70 p-3">
           <h1 className="text-white-800">Success!</h1>
-          <div className="my-3 rounded border bg-[hsl(272,82%,45%)] p-5 lg:my-8">
+          <div className="my-3 rounded border bg-[hsl(124,82%,45%)] p-5 lg:my-8">
             <Link href="/tickets" className="text-2xl hover:underline">
               Tickets
             </Link>
@@ -236,10 +240,18 @@ const AddTicketForm = () => {
                       </div>
                     </div>
 
-                    <div className="flex justify-end bg-gray-400/30  px-4 py-3 dark:bg-[rgba(0,0,0,0.5)] sm:pb-6 sm:pt-0">
+                    <div className="grid bg-gray-400/30  px-4 py-3 dark:bg-[rgba(0,0,0,0.5)] sm:pb-6 sm:pt-0">
+                      <span className="h-2 text-center">
+                        {errorMessage && (
+                          <p className="decoration-3 font-bold text-red-900 underline dark:text-red-600">
+                            {errorMessage}
+                          </p>
+                        )}
+                      </span>
+
                       <button
                         type="submit"
-                        className="m-0 w-20 rounded-md bg-[hsl(272,82%,45%)] p-1 text-base font-semibold text-white no-underline transition-colors hover:bg-[hsl(272,82%,45%)]/50 dark:border
+                        className="m-0 w-20 justify-self-end rounded-md bg-[hsl(272,82%,45%)] p-1 text-base font-semibold text-white no-underline transition-colors hover:bg-[hsl(272,82%,45%)]/50 dark:border
         dark:border-slate-600 dark:bg-[hsl(272,82%,45%)] dark:hover:border-slate-800 dark:hover:bg-[hsl(272,82%,45%)]/80 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900 lg:w-24 lg:py-2">
                         Add
                       </button>
