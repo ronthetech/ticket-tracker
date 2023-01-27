@@ -11,8 +11,8 @@ interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "Ticket Tracker",
-  description: "Ticket Tracker.",
+  name: "TrackerX",
+  description: "Your new favorite Ticket Tracker.",
   mainNav: [
     {
       title: "Home",
