@@ -51,6 +51,14 @@ export const ticketRouter = createTRPCRouter({
       })
       return newTicket
     }),
+  deleteTicket: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      const deletedTicket = await ctx.prisma.ticket.delete({
+        where: { id: input.id },
+      })
+      return deletedTicket
+    }),
 })
 
 // addUser: publicProcedure
