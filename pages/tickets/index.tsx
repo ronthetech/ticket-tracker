@@ -1,8 +1,10 @@
 import { Icons } from "components/icons"
 import { Layout } from "components/layout"
 import Spinner from "components/spinner"
+import { useSession } from "next-auth/react"
 import Link from "next/link"
 import { useRouter } from "next/router"
+import { useState } from "react"
 import { api } from "utils/api"
 
 // const tickets: TicketT[] = [
@@ -55,6 +57,8 @@ import { api } from "utils/api"
 // }
 
 function TicketsHome() {
+  const { data: sessionData } = useSession()
+  const [errorMessage, setErrorMessage] = useState("")
   const router = useRouter()
   const { data, isLoading } = api.ticket.getTickets.useQuery()
 
@@ -65,6 +69,11 @@ function TicketsHome() {
   })
 
   const handleDelete = (id: string) => {
+    if (sessionData === null) {
+      setErrorMessage("You must be signed in to delete tickets.")
+    } else if (sessionData.user === undefined) {
+      setErrorMessage("You need an account to continue.")
+    }
     deleteTicket.mutate({ id })
   }
 
@@ -144,6 +153,13 @@ function TicketsHome() {
                     <Icons.trash className="h-5 w-5" />
                     Delete
                   </button>
+                  <span className="col-span-6 h-0.5 sm:col-span-5">
+                    {errorMessage && (
+                      <p className="decoration-3 font-bold text-red-900 underline decoration-red-900 dark:text-red-200">
+                        {errorMessage}
+                      </p>
+                    )}
+                  </span>
                 </div>
               </li>
             ))}
