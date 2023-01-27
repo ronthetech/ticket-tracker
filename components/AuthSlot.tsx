@@ -12,7 +12,8 @@ const AuthSlot: React.FC = () => {
   const handleAuth = async (e: React.MouseEvent) => {
     e.preventDefault()
     if (sessionData) {
-      await signOut()
+      const data = await signOut({ redirect: false, callbackUrl: "/" })
+      await router.push(data.url)
     } else {
       await signIn()
     }
