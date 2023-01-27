@@ -46,7 +46,7 @@ const AddTicketForm = () => {
       addTicket.mutate({ ...values, userId: data.user.id })
       setSuccess(true)
     } else if (data === null) {
-      setErrorMessage("You must be signed in to add a new issue.")
+      setErrorMessage("You must be signed in to continue.")
     } else if (data.user === undefined) {
       setErrorMessage("You need an account to continue.")
     }
@@ -58,7 +58,7 @@ const AddTicketForm = () => {
   return (
     <>
       {success ? (
-        <section className="min-w-3xl my-4 mx-auto rounded bg-transparent p-3 dark:bg-slate-400/70">
+        <section className="min-w-3xl my-4 mx-auto rounded bg-transparent p-3">
           <h1 className="dark:text-white-800 text-slate-800">Success!</h1>
           <Spinner />
         </section>
@@ -237,7 +237,7 @@ const AddTicketForm = () => {
                     </div>
 
                     <div className="grid bg-transparent  px-4 py-3 dark:bg-[rgba(0,0,0,0.5)] sm:pb-6 sm:pt-0">
-                      <span className="h-2 text-center">
+                      <span className="h-2">
                         {errorMessage && (
                           <p className="decoration-3 font-bold text-red-900 underline decoration-red-900 dark:text-red-200">
                             {errorMessage}
