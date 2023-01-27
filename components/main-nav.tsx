@@ -20,7 +20,7 @@ export function MainNav({ items }: MainNavProps) {
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="hidden items-center space-x-2 md:flex">
         <Icons.logo className="h-6 w-6" />
-        <span className="hidden font-bold sm:inline-block">
+        <span className="hidden font-bold sm:inline-block sm:text-xl">
           {siteConfig.name}
         </span>
       </Link>
@@ -32,7 +32,7 @@ export function MainNav({ items }: MainNavProps) {
                 <Link
                   key={index}
                   href={item.href}
-                  className={`flex items-center text-lg font-semibold text-slate-600 hover:text-slate-900 dark:text-slate-100 sm:text-sm ${
+                  className={`flex items-center text-lg font-semibold text-slate-600 hover:text-slate-900 dark:text-slate-100 sm:text-xl ${
                     item.disabled ? "cursor-not-allowed opacity-80" : ""
                   }`}>
                   {item.title}
