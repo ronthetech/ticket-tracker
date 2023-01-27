@@ -12,7 +12,7 @@ export default function Home() {
             without the hassle.
           </h1>
           <p className="max-w-[700px] text-lg text-slate-700 dark:text-slate-400 sm:text-xl">
-            Seamless, detailed and _ ticket tracking. Free. Open Source. And
+            Seamless, and detailed issue tracking. Free. Open Source. And
             Production Ready.
           </p>
         </div>
