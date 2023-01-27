@@ -1,3 +1,4 @@
+import { Icons } from "components/icons"
 import { Layout } from "components/layout"
 import Spinner from "components/spinner"
 import Link from "next/link"
@@ -128,7 +129,8 @@ function TicketsHome() {
                 <div className="flex gap-4">
                   <Link
                     href={`/tickets/edit/${ticket.id}`}
-                    className="rounded-lg border border-slate-700 bg-slate-500/40 py-1 px-2 font-semibold uppercase text-slate-900 shadow-md hover:border-slate-200 hover:bg-slate-500/70 hover:text-slate-200 focus:outline-none focus:ring-2 focus:ring-opacity-75 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-100 dark:hover:bg-slate-100/70 dark:hover:text-slate-800 sm:py-1 sm:px-2">
+                    className="flex items-center rounded-lg border border-slate-700 bg-slate-500/40 py-1 px-2 font-semibold uppercase text-slate-900 shadow-md hover:border-slate-200 hover:bg-slate-500/70 hover:text-slate-200 focus:outline-none focus:ring-2 focus:ring-opacity-75 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-100 dark:hover:bg-slate-100/70 dark:hover:text-slate-800 sm:py-1 sm:px-2">
+                    <Icons.save className="h-5 w-5" />
                     Edit
                   </Link>
 
@@ -138,7 +140,8 @@ function TicketsHome() {
 
                   <button
                     onClick={() => handleDelete(ticket.id)}
-                    className="rounded-lg border border-red-700 bg-red-600 py-1 px-2 font-semibold uppercase text-white shadow-md hover:border-slate-200 hover:bg-red-600/70 focus:outline-none focus:ring-2 focus:ring-opacity-75 dark:border-red-700 dark:text-slate-100 dark:hover:text-slate-200/70 sm:py-1 sm:px-2">
+                    className="flex items-center rounded-lg border border-red-700 bg-red-600 py-1 px-2 font-semibold uppercase text-white shadow-md hover:border-slate-200 hover:bg-red-600/70 focus:outline-none focus:ring-2 focus:ring-opacity-75 dark:border-red-700 dark:text-slate-100 dark:hover:text-slate-200/70 sm:py-1 sm:px-2">
+                    <Icons.trash className="h-5 w-5" />
                     Delete
                   </button>
                 </div>
