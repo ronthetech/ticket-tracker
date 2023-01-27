@@ -83,7 +83,7 @@ function TicketsHome() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="my-4 mx-auto max-w-3xl rounded p-3">
+      <section className="my-4 mx-auto max-w-xl rounded p-3 md:max-w-3xl">
         <h1 className="text-red-800">Tickets</h1>
 
         <article className="my-3 rounded p-5">
@@ -94,7 +94,7 @@ function TicketsHome() {
                 className="my-3 rounded border bg-slate-400/70 p-5 lg:my-8">
                 <div className="flex items-center gap-3">
                   <Link href={`/tickets/${ticket.id}`}>
-                    <p className="text-lg" id={ticket.id}>
+                    <p className="text-sm sm:text-lg" id={ticket.id}>
                       Ticket ID: {ticket.id}
                     </p>
                   </Link>
@@ -115,19 +115,19 @@ function TicketsHome() {
                 </div>
 
                 <h2>{ticket.subject}</h2>
-                <div className="rounded-3 m-4 border border-slate-300 bg-slate-200/20 p-4 dark:bg-slate-900/40">
+                <div className="rounded-3 mx-2 my-4 border border-slate-300 bg-slate-200/20 p-2 dark:bg-slate-900/40 lg:m-4 lg:p-4">
                   <p className="text-slate-800 dark:text-slate-100">
                     {ticket.description}
                   </p>
                 </div>
 
                 <div className="flex gap-6 font-bold">
-                  <p>{ticket.severity}</p>
+                  <p>{ticket.severity.toUpperCase()}</p>
                   <p>{ticket.assignee}</p>
                 </div>
 
-                <div className="hidden sm:block" aria-hidden="true">
-                  <div className="py-5">
+                <div className="block" aria-hidden="true">
+                  <div className="py-3 sm:py-5">
                     <div className="border-t border-gray-800" />
                   </div>
                 </div>
