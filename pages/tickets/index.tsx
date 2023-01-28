@@ -18,7 +18,8 @@ function TicketsHome() {
   const [errorMessage, setErrorMessage] = useState("")
   const [query, setQuery] = useState("")
 
-  const { data, isLoading, isSuccess } = api.ticket.getTickets.useQuery()
+  const { data, isLoading, isSuccess, isError, error } =
+    api.ticket.getTickets.useQuery()
 
   useEffect(() => {
     if (isSuccess) {
@@ -53,11 +54,27 @@ function TicketsHome() {
     deleteTicket.mutate({ id })
   }
 
-  if (!data) {
-    return <></>
-  }
   if (isLoading) {
-    return <Spinner />
+    return (
+      <Layout>
+        <Spinner />
+      </Layout>
+    )
+  }
+
+  if (isError) {
+    setErrorMessage(error.message)
+    return (
+      <>
+        <Layout>
+          {errorMessage && (
+            <p className="decoration-3 font-bold text-red-900 underline decoration-red-900 dark:text-red-200">
+              {errorMessage}
+            </p>
+          )}
+        </Layout>
+      </>
+    )
   }
 
   return (
