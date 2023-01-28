@@ -48,7 +48,7 @@ export default function Home() {
             }}
             src="/img/hero_pattern.png"
             alt="hero bug tracker"
-            className="pointer-events-none absolute top-1/4 right-1/3 mt-44 select-none sm:ml-40 lg:mt-0"
+            className="pointer-events-none absolute top-1/4 right-1/3 mt-44 select-none sm:ml-40 md:top-0 md:right-0 lg:mt-0"
           />
           <div className="relative top-1/4 z-10 flex max-w-[980px] flex-col items-start gap-2">
             <h1 className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
