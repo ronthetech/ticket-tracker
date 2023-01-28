@@ -52,12 +52,12 @@ export default function Home() {
           />
           <div className="relative top-1/4 z-10 mt-24 flex max-w-[980px] flex-col items-start gap-2">
             <h1 className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
-              Track Tickets <br className="hidden sm:inline" />
+              Track Tickets <br className="inline" />
               without the hassle.
             </h1>
             <p className="text-lg text-slate-700 dark:text-slate-400 sm:text-xl">
-              Seamless, and detailed issue tracking. Free. Open Source. And
-              Production Ready.
+              Seamless, and detailed issue tracking.
+              <br className="inline" /> Free. Open Source. And Production Ready.
             </p>
           </div>
           <div className="mt-12 flex gap-4">
