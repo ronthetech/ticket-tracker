@@ -48,9 +48,9 @@ export default function Home() {
             }}
             src="/img/hero_pattern.png"
             alt="hero bug tracker"
-            className="pointer-events-none absolute top-1/4 right-1/3 mt-44 select-none sm:ml-40 md:top-0 md:right-0 lg:mt-0"
+            className="pointer-events-none absolute right-1/3 top-0 select-none sm:ml-40 md:right-0 lg:mt-0"
           />
-          <div className="relative top-1/4 z-10 flex max-w-[980px] flex-col items-start gap-2">
+          <div className="relative top-1/4 z-10 mt-24 flex max-w-[980px] flex-col items-start gap-2">
             <h1 className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
               Track Tickets <br className="hidden sm:inline" />
               without the hassle.
@@ -60,7 +60,7 @@ export default function Home() {
               Production Ready.
             </p>
           </div>
-          <div className="mt-6 flex gap-4">
+          <div className="mt-12 flex gap-4">
             <Link
               href="/tickets/new"
               className="inline-flex h-11 items-center justify-center rounded-md bg-slate-900 px-8 text-sm font-medium text-white transition-colors hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=open]:bg-slate-100 dark:border dark:bg-slate-300 dark:text-slate-900 dark:hover:border-slate-600 dark:hover:bg-[hsl(272,82%,45%)]/20 dark:hover:text-slate-100 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900 dark:data-[state=open]:bg-slate-800">
