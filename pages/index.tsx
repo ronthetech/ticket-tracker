@@ -34,45 +34,33 @@ export default function Home() {
                 Seamless, and detailed issue tracking. Free. Open Source. And
                 Production Ready.
               </p>
-              <div className="flex gap-4">
-                <Link
-                  href="/tickets/new"
-                  className="inline-flex h-11 items-center justify-center rounded-md bg-slate-900 px-8 text-sm font-medium text-white transition-colors hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=open]:bg-slate-100 dark:border dark:bg-slate-300 dark:text-slate-900 dark:hover:border-slate-600 dark:hover:bg-[hsl(272,82%,45%)]/20 dark:hover:text-slate-100 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900 dark:data-[state=open]:bg-slate-800">
-                  Get Started
-                </Link>
-                <Link
-                  href={siteConfig.links.github}
-                  className="inline-flex h-11 items-center justify-center rounded-md border border-slate-200 bg-transparent px-8 text-sm font-medium transition-colors hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=open]:bg-slate-100 dark:border-slate-700 dark:bg-gray-700/30 dark:text-slate-100 dark:hover:bg-[hsl(272,82%,45%)]/60 dark:hover:text-slate-100 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900 dark:data-[state=open]:bg-slate-800">
-                  Learn More
-                </Link>
-              </div>
             </div>
           </div>
         </section> */}
-        <section className="container relative grid items-center gap-6 pt-6 pb-8 md:block md:py-10">
+        <section className="container relative grid items-center gap-6 md:block md:py-10">
           <Image
             quality={100}
             priority
-            height={1000}
-            width={1000}
+            height={1200}
+            width={1200}
             style={{
               objectFit: "cover",
             }}
             src="/img/hero_pattern.png"
             alt="hero bug tracker"
-            className="pointer-events-none absolute ml-96 select-none"
+            className="pointer-events-none absolute top-1/4 right-1/3 mt-44 select-none sm:ml-40 lg:mt-0"
           />
-          <div className="relative z-10 flex max-w-[980px] flex-col items-start gap-2">
+          <div className="relative top-1/4 z-10 flex max-w-[980px] flex-col items-start gap-2">
             <h1 className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
               Track Tickets <br className="hidden sm:inline" />
               without the hassle.
             </h1>
-            <p className="max-w-[700px] text-lg text-slate-700 dark:text-slate-400 sm:text-xl">
+            <p className="text-lg text-slate-700 dark:text-slate-400 sm:text-xl">
               Seamless, and detailed issue tracking. Free. Open Source. And
               Production Ready.
             </p>
           </div>
-          <div className="flex gap-4">
+          <div className="mt-6 flex gap-4">
             <Link
               href="/tickets/new"
               className="inline-flex h-11 items-center justify-center rounded-md bg-slate-900 px-8 text-sm font-medium text-white transition-colors hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=open]:bg-slate-100 dark:border dark:bg-slate-300 dark:text-slate-900 dark:hover:border-slate-600 dark:hover:bg-[hsl(272,82%,45%)]/20 dark:hover:text-slate-100 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900 dark:data-[state=open]:bg-slate-800">
