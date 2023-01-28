@@ -94,10 +94,12 @@ function TicketsHome() {
             {data.map((ticket) => (
               <li
                 key={ticket.id}
-                className="my-3 rounded border bg-slate-400/70 p-5 lg:my-8">
+                className="my-3 rounded border bg-slate-400/70 p-5 dark:text-slate-800 lg:my-8">
                 <div className="flex items-center gap-3">
                   <Link href={`/tickets/${ticket.id}`}>
-                    <p className="text-sm sm:text-lg" id={ticket.id}>
+                    <p
+                      className="text-sm font-semibold sm:text-lg"
+                      id={ticket.id}>
                       Ticket ID: {ticket.id}
                     </p>
                   </Link>
@@ -118,10 +120,8 @@ function TicketsHome() {
                 </div>
 
                 <h2>{ticket.subject}</h2>
-                <div className="rounded-3 mx-2 my-4 border border-slate-300 bg-slate-200/20 p-2 dark:bg-slate-900/40 lg:m-4 lg:p-4">
-                  <p className="text-slate-800 dark:text-slate-100">
-                    {ticket.description}
-                  </p>
+                <div className="rounded-3 mx-2 my-4 border border-slate-300 bg-slate-200/20 p-2 dark:bg-gray-100/5 dark:text-slate-900 lg:m-4 lg:p-4">
+                  <p className="font-medium text-black">{ticket.description}</p>
                 </div>
 
                 <div className="flex gap-6 font-bold">
