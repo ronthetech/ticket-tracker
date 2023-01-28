@@ -64,7 +64,7 @@ function TicketsHome() {
     <Layout>
       <section className="my-4 mx-auto max-w-xl rounded p-3 md:max-w-3xl">
         <h1 className="text-red-800">Tickets</h1>
-        <section className="my-3">
+        <section className="my-2">
           <Label
             htmlFor="search"
             className="block text-xl font-medium text-gray-700 dark:text-slate-200">
@@ -79,7 +79,7 @@ function TicketsHome() {
             className="focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm"
           />
         </section>
-        <article className="rounded p-5">
+        <article className="rounded">
           <ul>
             {filteredTickets.map((ticket) => (
               <li
