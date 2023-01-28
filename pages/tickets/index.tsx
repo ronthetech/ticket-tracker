@@ -1,66 +1,42 @@
 import { Icons } from "components/icons"
 import { Layout } from "components/layout"
 import Spinner from "components/spinner"
+import { Input } from "components/ui/input"
+import { Label } from "components/ui/label"
 import { useSession } from "next-auth/react"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { useState } from "react"
+import { useEffect, useMemo, useState } from "react"
+import type { Ticket } from "types/ticket"
 import { api } from "utils/api"
-
-// const tickets: TicketT[] = [
-//   {
-//     _id: "1",
-//     subject: "lagging",
-//     description: "Mouse events are lagging",
-//     severity: "Low",
-//     assignee: "Alan",
-//     status: "Open",
-//   },
-//   {
-//     _id: "2",
-//     subject: "crash",
-//     description: "Computer crashes when I open program",
-//     severity: "High",
-//     assignee: "Luke",
-//     status: "Open",
-//   },
-//   {
-//     _id: "3",
-//     subject: "no notifications",
-//     description: "Not receiving my notifications",
-//     severity: "Medium",
-//     assignee: "Gail",
-//     status: "Closed",
-//   },
-//   {
-//     _id: "4",
-//     subject: "form submit",
-//     description: "i cant submit my form entry",
-//     severity: "Low",
-//     assignee: "Ernie",
-//     status: "Open",
-//   },
-// ]
-
-// const getTickets = (): Promise<TicketT[]> =>
-//   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-//   fetch("https://rjf-manager-server.onrender.com/tickets").then((response) =>
-//     response.json()
-//   )
-
-// export const getServerSideProps = async () => {
-//   // const res = await fetch("https://rjf-manager-server.onrender.com/tickets")
-
-//   return {
-//     props: { initialData: await getTickets() },
-//   }
-// }
 
 function TicketsHome() {
   const { data: sessionData } = useSession()
-  const [errorMessage, setErrorMessage] = useState("")
   const router = useRouter()
-  const { data, isLoading } = api.ticket.getTickets.useQuery()
+
+  const [tickets, setTickets] = useState<Ticket[]>([])
+  const [errorMessage, setErrorMessage] = useState("")
+  const [query, setQuery] = useState("")
+
+  const { data, isLoading, isSuccess } = api.ticket.getTickets.useQuery()
+
+  useEffect(() => {
+    if (isSuccess) {
+      setTickets(data)
+    }
+  }, [data, isSuccess])
+
+  const filteredTickets = useMemo(() => {
+    return tickets.filter((ticket) => {
+      return (
+        ticket.id.toLowerCase().includes(query.toLowerCase()) ||
+        ticket.subject.toLowerCase().includes(query.toLowerCase()) ||
+        ticket.description.toLowerCase().includes(query.toLowerCase()) ||
+        ticket.severity.toLowerCase().includes(query.toLowerCase()) ||
+        ticket.assignee.toLowerCase().includes(query.toLowerCase())
+      )
+    })
+  }, [query, tickets])
 
   const deleteTicket = api.ticket.deleteTicket.useMutation({
     onSuccess: () => {
@@ -88,10 +64,24 @@ function TicketsHome() {
     <Layout>
       <section className="my-4 mx-auto max-w-xl rounded p-3 md:max-w-3xl">
         <h1 className="text-red-800">Tickets</h1>
-
-        <article className="my-3 rounded p-5">
+        <section className="my-3">
+          <Label
+            htmlFor="search"
+            className="block text-xl font-medium text-gray-700 dark:text-slate-200">
+            Search
+          </Label>
+          <Input
+            id="search"
+            name="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            type="text"
+            className="focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm"
+          />
+        </section>
+        <article className="rounded p-5">
           <ul>
-            {data.map((ticket) => (
+            {filteredTickets.map((ticket) => (
               <li
                 key={ticket.id}
                 className="my-3 rounded border bg-slate-400/70 p-5 dark:text-slate-800 lg:my-8">
