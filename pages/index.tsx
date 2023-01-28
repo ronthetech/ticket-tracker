@@ -48,9 +48,9 @@ export default function Home() {
             }}
             src="/img/hero_pattern.png"
             alt="hero bug tracker"
-            className="pointer-events-none absolute right-1/3 top-0 select-none sm:ml-40 md:right-0 lg:mt-0"
+            className="pointer-events-none absolute top-0 select-none md:right-0 md:ml-40 lg:mt-0"
           />
-          <div className="relative top-1/4 z-10 mt-24 flex max-w-[980px] flex-col items-start gap-2">
+          <div className="relative top-1/4 z-10 mt-12 flex max-w-3xl flex-col items-start gap-2 md:mt-24 md:max-w-5xl">
             <h1 className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
               Track Tickets <br className="inline" />
               without the hassle.
