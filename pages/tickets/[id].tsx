@@ -59,8 +59,14 @@ const Ticket: NextPage = () => {
           </div>
 
           <div className="flex gap-6 font-bold">
-            <p>{data.severity.toUpperCase()}</p>
-            <p>{data.assignee}</p>
+            <span className="flex rounded bg-white/10 p-1">
+              <Icons.timer className="h-5 w-5" />
+              <p>{data.severity.toUpperCase()}</p>
+            </span>
+            <span className="flex rounded bg-white/10 p-1">
+              <Icons.userIcon className="h-5 w-5" />
+              <p>{data.assignee}</p>
+            </span>
           </div>
 
           <div className="block" aria-hidden="true">
