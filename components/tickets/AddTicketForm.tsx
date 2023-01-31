@@ -193,6 +193,9 @@ const AddTicketForm = () => {
                               value="">
                               Choose an option...
                             </option>
+                            <option className="text-black" value="Lowest">
+                              Lowest
+                            </option>
                             <option className="text-black" value="Low">
                               Low
                             </option>
@@ -201,6 +204,9 @@ const AddTicketForm = () => {
                             </option>
                             <option className="text-black" value="High">
                               High
+                            </option>
+                            <option className="text-black" value="Highest">
+                              Highest
                             </option>
                           </select>
                           <span className="mb-2 inline-flex h-2">
