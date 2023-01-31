@@ -47,7 +47,7 @@ const AddTicketForm = () => {
       addTicket.mutate({ ...values, userId: data.user.id })
       setSuccess(true)
     } else if (data === null) {
-      setErrorMessage("You must be signed in to continue.")
+      setErrorMessage("You must be signed in.")
     } else if (data.user === undefined) {
       setErrorMessage("You need an account to continue.")
     }
