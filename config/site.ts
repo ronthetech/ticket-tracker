@@ -23,6 +23,6 @@ export const siteConfig: SiteConfig = {
   ],
   links: {
     twitter: "https://twitter.com/ronjtech",
-    github: "https://github.com/ronthetech",
+    github: "https://github.com/ronthetech/ticket-tracker",
   },
 }
