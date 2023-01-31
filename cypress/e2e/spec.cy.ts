@@ -3,7 +3,7 @@
 describe("Navigation", () => {
   it("should navigate to the tickets page", () => {
     //start from the index page
-    cy.visit("https://trackerx.vercel.app")
+    cy.visit("/")
 
     // find a link with an href attribute containing "tickets" and click it
     cy.get("[href='/tickets']").click()
