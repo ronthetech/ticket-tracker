@@ -49,9 +49,9 @@ const EditTicket: NextPage = () => {
 
   const onSubmit = (values: UpdateTicketInput) => {
     if (sessionData === null) {
-      setErrorMessage("You must be signed in to continue.")
+      setErrorMessage("You must be signed in.")
     } else if (sessionData.user === undefined) {
-      setErrorMessage("You need an account to continue.")
+      setErrorMessage("You need an account.")
     }
     const str2bool = (value: string) => {
       if (value === "true") return true
@@ -169,6 +169,9 @@ const EditTicket: NextPage = () => {
                     value="">
                     Choose an option...
                   </option>
+                  <option className="text-black" value="Lowest">
+                    Lowest
+                  </option>
                   <option className="text-black" value="Low">
                     Low
                   </option>
@@ -177,6 +180,9 @@ const EditTicket: NextPage = () => {
                   </option>
                   <option className="text-black" value="High">
                     High
+                  </option>
+                  <option className="text-black" value="Highest">
+                    Highest
                   </option>
                 </select>
                 <span className="mb-2 inline-flex h-2">
