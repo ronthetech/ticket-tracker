@@ -101,7 +101,7 @@ function TicketsHome() {
             {filteredTickets.map((ticket) => (
               <li
                 key={ticket.id}
-                className="my-3 rounded border bg-slate-400/70 p-5 dark:text-slate-800 lg:my-8">
+                className="my-3 rounded border bg-slate-400/70 p-5 dark:text-black lg:my-8">
                 <div className="flex items-center gap-3">
                   <Link href={`/tickets/${ticket.id}`}>
                     <p
