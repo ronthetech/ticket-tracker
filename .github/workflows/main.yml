@@ -1,0 +1,19 @@
+name: cypress-test-1
+on: [push]
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7.25.0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.17.1
+          cache: "pnpm"
+        # Install NPM dependencies, cache them correctly
+        # and run all Cypress tests
+      - run: pnpm install
+      - name: Cypress run
+        uses: cypress-io/github-action@v5.0.7
